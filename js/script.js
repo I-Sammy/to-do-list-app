@@ -1,33 +1,35 @@
-function newItem(){
-
+function newItem() {
+  //adding a new item to the list
   let li = $('<li></li>');
-  let inputValue = $('#input').val)();
-  //adding an item to the list
+  let inputValue = $('#input').val();
   li.append(inputValue);
 
-  if (inputValue === '') {
-     alert("You must write something!");
-   } else {
-     $('#list').append(li);
-   }
-   //crossing an item from the List
-  function crossOut() {
-		li.toggleClass("strike");
-	}
-  li.on("dblclick", crossOut());
-  li.on("click", function() {
-    li.addClass("strike");
+  if (inputValue === ''){
+    alert('You must write something')
+  } else {
+    $('#list').append(li)
+  }
+
+  //Crossing out an item from the list
+  function crossOut(){
+    li.addClass.toggle('strike');
+  }
+
+  li.on('dblclick', function crossOut(){
+    li.toggleClass('strike');
   });
 
-   //adding delete button
+  //Adding the delete button "X":
   let crossOutButton = $('<crossOutButton></crossOutButton>');
   crossOutButton.append(document.createTextNode('X'));
   li.append(crossOutButton);
-  function deletelistitem(){
- 		li.addclass("delete")
- 	}
+
   crossOutButton.on("click", deleteListItem);
+  //Deleting an item from the list
+  function deleteListItem(){
+    li.addClass("delete")
+  }
 
+  //Reordering the items:
   $('#list').sortable();
-
 }
